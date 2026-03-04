@@ -1,25 +1,32 @@
+import java.util.LinkedList;
+
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        // UC3 - Palindrome Check Using String Reverse
+        String input = "madam";
 
-        String input = "radar";
-        String reversed = "";
+        LinkedList<Character> list = new LinkedList<>();
 
-        // Reverse the string using loop
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed = reversed + input.charAt(i);
+        // Add characters to LinkedList
+        for (char c : input.toCharArray()) {
+            list.add(c);
         }
 
-        // Compare original and reversed string
-        if (input.equals(reversed)) {
-            System.out.println("Input : " + input);
-            System.out.println("Is Palindrome : true");
-        } else {
-            System.out.println("Input : " + input);
-            System.out.println("Is Palindrome : false");
+        boolean isPalindrome = true;
+
+        while (list.size() > 1) {
+
+            char first = list.removeFirst();
+            char last = list.removeLast();
+
+            if (first != last) {
+                isPalindrome = false;
+                break;
+            }
         }
 
+        System.out.println("Input: " + input);
+        System.out.println("Is Palindrome: " + isPalindrome);
     }
 }
