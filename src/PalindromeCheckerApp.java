@@ -1,25 +1,24 @@
 public class PalindromeCheckerApp {
 
+    // Recursive function
+    public static boolean isPalindrome(String str) {
+
+        if (str.length() <= 1) {
+            return true;
+        }
+
+        if (str.charAt(0) != str.charAt(str.length() - 1)) {
+            return false;
+        }
+
+        return isPalindrome(str.substring(1, str.length() - 1));
+    }
+
     public static void main(String[] args) {
 
-        // UC3 - Palindrome Check Using String Reverse
+        String input = "racecar";
 
-        String input = "radar";
-        String reversed = "";
-
-        // Reverse the string using loop
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed = reversed + input.charAt(i);
-        }
-
-        // Compare original and reversed string
-        if (input.equals(reversed)) {
-            System.out.println("Input : " + input);
-            System.out.println("Is Palindrome : true");
-        } else {
-            System.out.println("Input : " + input);
-            System.out.println("Is Palindrome : false");
-        }
-
+        System.out.println("Input: " + input);
+        System.out.println("Is Palindrome: " + isPalindrome(input));
     }
 }
