@@ -1,25 +1,34 @@
+import java.util.Deque;
+import java.util.ArrayDeque;
+
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        // UC3 - Palindrome Check Using String Reverse
+        String input = "refer";
 
-        String input = "radar";
-        String reversed = "";
+        Deque<Character> deque = new ArrayDeque<>();
 
-        // Reverse the string using loop
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed = reversed + input.charAt(i);
+        // Add characters to deque
+        for (char c : input.toCharArray()) {
+            deque.addLast(c);
         }
 
-        // Compare original and reversed string
-        if (input.equals(reversed)) {
-            System.out.println("Input : " + input);
-            System.out.println("Is Palindrome : true");
-        } else {
-            System.out.println("Input : " + input);
-            System.out.println("Is Palindrome : false");
+        boolean isPalindrome = true;
+
+        // Compare first and last characters
+        while (deque.size() > 1) {
+
+            char first = deque.removeFirst();
+            char last = deque.removeLast();
+
+            if (first != last) {
+                isPalindrome = false;
+                break;
+            }
         }
 
+        System.out.println("Input: " + input);
+        System.out.println("Is Palindrome: " + isPalindrome);
     }
 }
