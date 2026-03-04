@@ -2,19 +2,24 @@ public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        // UC2 - Hardcoded Palindrome Check
+        // UC3 - Palindrome Check Using String Reverse
 
-        String word = "radar";
+        String input = "radar";
         String reversed = "";
 
-        for (int i = word.length() - 1; i >= 0; i--) {
-            reversed = reversed + word.charAt(i);
+        // Reverse the string using loop
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed = reversed + input.charAt(i);
         }
 
-        if (word.equals(reversed)) {
-            System.out.println(word + " is a palindrome.");
+        // Compare original and reversed string
+        if (input.equals(reversed)) {
+            System.out.println("Input : " + input);
+            System.out.println("Is Palindrome : true");
         } else {
-            System.out.println(word + " is not a palindrome.");
+            System.out.println("Input : " + input);
+            System.out.println("Is Palindrome : false");
         }
+
     }
 }
