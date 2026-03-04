@@ -1,25 +1,31 @@
 public class PalindromeCheckerApp {
 
+    // Service method
+    public static boolean checkPalindrome(String input) {
+
+        int start = 0;
+        int end = input.length() - 1;
+
+        while (start < end) {
+
+            if (input.charAt(start) != input.charAt(end)) {
+                return false;
+            }
+
+            start++;
+            end--;
+        }
+
+        return true;
+    }
+
     public static void main(String[] args) {
 
-        // UC3 - Palindrome Check Using String Reverse
+        String word = "madam";
 
-        String input = "radar";
-        String reversed = "";
+        boolean result = checkPalindrome(word);
 
-        // Reverse the string using loop
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed = reversed + input.charAt(i);
-        }
-
-        // Compare original and reversed string
-        if (input.equals(reversed)) {
-            System.out.println("Input : " + input);
-            System.out.println("Is Palindrome : true");
-        } else {
-            System.out.println("Input : " + input);
-            System.out.println("Is Palindrome : false");
-        }
-
+        System.out.println("Input: " + word);
+        System.out.println("Palindrome: " + result);
     }
 }
