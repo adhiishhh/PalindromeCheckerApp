@@ -1,25 +1,31 @@
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        // UC3 - Palindrome Check Using String Reverse
+        String input = "level";
 
-        String input = "radar";
-        String reversed = "";
+        Stack<Character> stack = new Stack<>();
+        Queue<Character> queue = new LinkedList<>();
 
-        // Reverse the string using loop
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed = reversed + input.charAt(i);
+        for (char c : input.toCharArray()) {
+            stack.push(c);
+            queue.add(c);
         }
 
-        // Compare original and reversed string
-        if (input.equals(reversed)) {
-            System.out.println("Input : " + input);
-            System.out.println("Is Palindrome : true");
-        } else {
-            System.out.println("Input : " + input);
-            System.out.println("Is Palindrome : false");
+        boolean isPalindrome = true;
+
+        while (!stack.isEmpty()) {
+            if (stack.pop() != queue.poll()) {
+                isPalindrome = false;
+                break;
+            }
         }
 
+        System.out.println("Input: " + input);
+        System.out.println("Is Palindrome: " + isPalindrome);
     }
 }
