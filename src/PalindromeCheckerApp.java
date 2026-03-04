@@ -1,25 +1,30 @@
 public class PalindromeCheckerApp {
 
+    public static boolean isPalindrome(String str) {
+
+        str = str.toLowerCase();
+
+        int start = 0;
+        int end = str.length() - 1;
+
+        while (start < end) {
+
+            if (str.charAt(start) != str.charAt(end)) {
+                return false;
+            }
+
+            start++;
+            end--;
+        }
+
+        return true;
+    }
+
     public static void main(String[] args) {
 
-        // UC3 - Palindrome Check Using String Reverse
+        String input = "RaceCar";
 
-        String input = "radar";
-        String reversed = "";
-
-        // Reverse the string using loop
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed = reversed + input.charAt(i);
-        }
-
-        // Compare original and reversed string
-        if (input.equals(reversed)) {
-            System.out.println("Input : " + input);
-            System.out.println("Is Palindrome : true");
-        } else {
-            System.out.println("Input : " + input);
-            System.out.println("Is Palindrome : false");
-        }
-
+        System.out.println("Input: " + input);
+        System.out.println("Is Palindrome (case-insensitive): " + isPalindrome(input));
     }
 }
